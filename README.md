@@ -1,6 +1,6 @@
 # Volleyball Liga Klasse 8 (Sequenz-Homepage)
 
-Stand: 09.10.2026, lokal gebaut und geprüft, noch nicht veröffentlicht, noch nicht im Unterricht getestet.
+Stand: 09.10.2026, live auf https://fhe86.github.io/volleyball/ (Repo Fhe86/volleyball), noch nicht im Unterricht getestet.
 
 Vier Termine (je 90 Min, 16 Schüler, 4 Teams zu je 4) vom Pritschen bis zum Turnier mit Finale. Eine Liga über alle Termine, dazu zwei Noten (Technik 20 P aus Pritschen und Baggern, Spiel 12 P). Lehrplanbezug: LehrplanPLUS Mittelschule Sport Jgst. 8, 4.3 Spielen (oberes und unteres Zuspiel, Angabe von unten, Kleinfeldspiele bis 3:3).
 
@@ -32,7 +32,7 @@ PDF über den Button auf der Seite. Seitenzahlen: Stunde 1 = 6, Stunde 2 = 6, St
 
 ## Offene Punkte
 
-- Veröffentlichen: eigenes Repo `Fhe86/volleyball` und GitHub Pages anlegen (wartet auf Fabis Ja).
+- Änderungen: build.py ausführen, dann `git add -A && git commit && git push` im Ordner.
 - Annahmen prüfen: Doppelstunden (90 Min), Netz auf 2,10 m quer teilbar für zwei Felder, 16 Schüler.
 - Punkte-Richtwerte (Ballkreis-Rekorde, Ketten pro 3 Minuten, Angabe-Zonen) nach dem ersten Durchlauf anpassen.
 - Spielnote: Beobachtungsplan steht in Stunde 4 (Runde 1 Feld A, Runde 2 und 3 Feld B).
