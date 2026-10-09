@@ -1,0 +1,485 @@
+/* Volleyball Liga Klasse 8: Gestaltung.
+   Farbwelt: vier Teamfarben (Blau, Gelb, Grün, Korall) auf warmem Creme.
+   Jede Stunde und jedes Team hat eine feste Farbe. */
+
+@font-face{font-family:"Geist";font-weight:100 900;font-style:normal;font-display:swap;
+  src:url("fonts/geist.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Geist";font-weight:100 900;font-style:normal;font-display:swap;
+  src:url("fonts/geist-ext.woff2") format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+:root{
+  color-scheme:light;
+  --bg:#fff8ee;
+  --surface:#ffffff;
+  --surface-2:#fdecc8;
+  --ink:#1b2433;
+  --ink-soft:#4a566b;
+  --line:#ecdcb8;
+  --blue:#2f6bff;--blue-soft:#e4ecff;
+  --yellow:#f5a800;--yellow-soft:#fff2cc;
+  --green:#12a672;--green-soft:#dcf5ea;
+  --coral:#ff5a5f;--coral-soft:#ffe3e4;
+  --accent:#2f6bff;
+  --accent-ink:#ffffff;
+  --accent-soft:#e4ecff;
+  --ok:#12a672;
+  --warn:#b4420c;
+  --warn-soft:#ffe9d6;
+  --r-card:20px;
+  --r-ctl:12px;
+  --shadow:0 2px 4px rgba(27,36,51,.06),0 14px 30px -14px rgba(27,36,51,.28);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+h1,h2,h3{font-weight:650;letter-spacing:-.02em;line-height:1.08;margin:0}
+p{margin:0}
+ul{margin:0;padding:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+
+/* Navigation: eine Zeile, 64px */
+.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{height:64px;display:flex;align-items:center;gap:28px}
+.brand{font-weight:700;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.brand b{color:var(--accent)}
+.nav ul{list-style:none;display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a.link{display:block;padding:8px 12px;border-radius:var(--r-ctl);text-decoration:none;color:var(--ink-soft);
+  font-size:.94rem;white-space:nowrap;transition:background .2s var(--ease),color .2s var(--ease)}
+.nav a.link:hover{background:var(--surface-2);color:var(--ink)}
+.nav a.link[aria-current="page"]{color:var(--ink);background:var(--surface-2);font-weight:600}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:var(--r-ctl);border:1.5px solid transparent;
+  font:inherit;font-weight:600;text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:transform .25s var(--ease),background .2s,border-color .2s}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);background:var(--surface);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink-soft)}
+
+/* Hero */
+.hero{padding:56px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;min-height:min(640px,calc(100dvh - 140px))}
+.hero h1{font-size:clamp(2.5rem,5.4vw,4.6rem);letter-spacing:-.035em}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{margin-top:22px;font-size:1.18rem;color:var(--ink-soft);max-width:34ch}
+.hero .actions{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+
+.stairs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:end;height:420px}
+.step-block{display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;
+  padding:16px 14px;border-radius:var(--r-card);background:var(--surface);border:1px solid var(--line);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.step-block:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.step-block:nth-child(1){height:42%}
+.step-block:nth-child(2){height:60%}
+.step-block:nth-child(3){height:78%}
+.step-block:nth-child(4){height:100%;background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.step-block .num{font-size:2.6rem;font-weight:700;letter-spacing:-.04em;line-height:1}
+.step-block .t{display:block;font-weight:600;font-size:1rem;line-height:1.25}
+.step-block .s{display:block;font-size:.84rem;opacity:.75;margin-top:4px;line-height:1.3}
+
+/* Abschnitte */
+section.block{padding:72px 0}
+section.block + section.block{border-top:1px solid var(--line)}
+h2.title{font-size:clamp(1.9rem,3.6vw,2.8rem)}
+.sub{margin-top:14px;color:var(--ink-soft);max-width:60ch}
+
+/* Stundenliste */
+.lessons{margin-top:36px;display:grid}
+.lesson-row{display:grid;grid-template-columns:96px 1fr 240px 40px;gap:28px;align-items:center;padding:28px 0;
+  text-decoration:none;border-bottom:1px solid var(--line);transition:padding .3s var(--ease)}
+.lesson-row:last-child{border-bottom:0}
+.lesson-row:hover{padding-left:12px}
+.lesson-row .n{font-size:3.4rem;font-weight:700;letter-spacing:-.05em;color:var(--accent);line-height:1}
+.lesson-row h3{font-size:1.5rem}
+.lesson-row .goal{color:var(--ink-soft);margin-top:6px;max-width:56ch}
+.lesson-row .meta{font-size:.92rem;color:var(--ink-soft);line-height:1.5}
+.lesson-row .meta b{display:block;color:var(--ink);font-weight:600}
+.lesson-row .arr{font-size:1.6rem;color:var(--ink-soft);transition:transform .3s var(--ease),color .2s}
+.lesson-row:hover .arr{transform:translateX(6px);color:var(--accent)}
+
+/* Filter und Karten */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chip{font:inherit;font-size:.92rem;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);
+  color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.chip:hover{border-color:var(--ink-soft)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cards{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:20px 20px 22px;
+  display:flex;flex-direction:column;gap:10px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card h3{font-size:1.15rem}
+.card p{color:var(--ink-soft);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--surface-2);color:var(--ink-soft)}
+.tag.stufe{background:var(--accent-soft);color:var(--accent)}
+.empty{margin-top:28px;color:var(--ink-soft)}
+
+/* Bewertung Kacheln (Raster mit Rhythmus) */
+.score-grid{margin-top:36px;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.tile{border-radius:var(--r-card);padding:24px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.tile .big{font-size:3.2rem;font-weight:700;letter-spacing:-.04em;line-height:1}
+.tile .big small{font-size:1rem;font-weight:500;color:var(--ink-soft);letter-spacing:0;margin-left:6px}
+.tile p{color:var(--ink-soft);font-size:.95rem}
+.tile.t1{grid-column:span 3}.tile.t2{grid-column:span 3;background:var(--surface-2)}
+.tile.t4{grid-column:span 6;background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tile.t4 p,.tile.t4 .big small{color:inherit;opacity:.85}
+
+/* Zweispalter Material */
+.two{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.two h3{font-size:1.2rem;margin-bottom:12px}
+.plain{list-style:none;display:grid;gap:8px;color:var(--ink-soft)}
+.plain li{padding-left:18px;position:relative}
+.plain li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:2px;background:var(--accent)}
+
+/* Stundenseiten */
+.page-head{padding:56px 0 28px}
+.crumb{font-size:.92rem;color:var(--ink-soft)}
+.crumb a{text-decoration:none}.crumb a:hover{color:var(--accent)}
+.page-head h1{font-size:clamp(2.2rem,4.6vw,3.8rem);margin-top:14px;letter-spacing:-.035em}
+.page-head .goal{margin-top:16px;font-size:1.2rem;color:var(--ink-soft);max-width:52ch}
+.facts{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+.facts .tag{font-size:.88rem;padding:5px 14px;background:var(--surface);border:1px solid var(--line)}
+.page-actions{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+
+.timeline{display:grid;margin-top:12px}
+.tl-step{display:grid;grid-template-columns:120px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--line);break-inside:avoid}
+.tl-step:first-child{border-top:0}
+.tl-time{font-weight:700;color:var(--accent);font-size:1.05rem;letter-spacing:-.01em}
+.tl-time span{display:block;font-weight:500;font-size:.85rem;color:var(--ink-soft)}
+.tl-body h3{font-size:1.3rem}
+.tl-body ul{list-style:none;margin-top:10px;display:grid;gap:7px}
+.tl-body li{padding-left:18px;position:relative;color:var(--ink-soft)}
+.tl-body li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:2px;background:var(--accent)}
+.tl-body li b{color:var(--ink);font-weight:600}
+.tl-note{margin-top:12px;font-size:.92rem;padding:10px 14px;border-radius:var(--r-ctl);background:var(--accent-soft);color:var(--ink)}
+
+.aside-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:22px;break-inside:avoid}
+.panel h3{font-size:1.1rem;margin-bottom:10px}
+.panel.warn{background:var(--warn-soft);border-color:transparent}
+.panel.warn h3{color:var(--warn)}
+
+.pager{margin-top:48px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.pager a{display:block;text-decoration:none;padding:16px 20px;border:1px solid var(--line);border-radius:var(--r-card);background:var(--surface);
+  transition:transform .3s var(--ease),border-color .2s;min-width:220px}
+.pager a:hover{transform:translateY(-3px);border-color:var(--ink-soft)}
+.pager small{display:block;color:var(--ink-soft)}
+.pager strong{font-size:1.05rem}
+.pager .next{margin-left:auto;text-align:right}
+
+/* Bewertungsseite */
+.calc{margin-top:32px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:stretch}
+.calc form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-content:start}
+.field label{display:block;font-weight:600;font-size:.95rem;margin-bottom:6px}
+.field .hint{display:block;font-size:.82rem;color:var(--ink-soft);margin-top:5px}
+.field input{width:100%;font:inherit;font-size:1.1rem;padding:11px 14px;border-radius:var(--r-ctl);border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.field input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.field input[aria-invalid="true"]{border-color:var(--warn)}
+.field .err{display:block;min-height:1.1em;font-size:.82rem;color:var(--warn);margin-top:5px}
+.result{background:var(--ink);color:var(--bg);border-radius:var(--r-card);padding:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.result .note{font-size:4.6rem;font-weight:700;letter-spacing:-.05em;line-height:1;margin:6px 0}
+.result .lbl{opacity:.75;font-size:.9rem}
+.scales{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.scales + .panel table td:not(:first-child){color:var(--ink)}
+.panel table{border-collapse:collapse;width:100%;font-size:.95rem}
+.panel th{text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);padding:4px 0 8px;border-bottom:1.5px solid var(--ink)}
+.panel td{padding:6px 0;color:var(--ink-soft)}
+.panel td:first-child{color:var(--ink);font-weight:600;width:50%}
+.panel p{color:var(--ink-soft);font-size:.95rem;margin-top:8px}
+.schluessel{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.schluessel .tag{font-size:.9rem;padding:6px 14px;background:var(--surface);border:1px solid var(--line)}
+
+.sheet-wrap{overflow-x:auto;margin-top:24px}
+table.bogen{border-collapse:collapse;width:100%;min-width:720px;background:var(--surface)}
+table.bogen th{font-size:.72rem;text-transform:uppercase;letter-spacing:.03em;text-align:left;padding:8px 6px;border:1px solid var(--ink);background:var(--surface-2);color:var(--ink)}
+table.bogen td{border:1px solid var(--ink);height:34px;padding:0 6px}
+table.bogen td.n{width:28px;text-align:center;color:var(--ink-soft)}
+
+footer.foot{padding:40px 0 56px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.92rem}
+footer.foot .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* Bewegung: nur Einblenden beim Scrollen, mit Zweck (Reihenfolge lesen) */
+@media (prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
+  .js .reveal.in{opacity:1;transform:none}
+  .js .stairs .step-block{opacity:0;transform:translateY(40px);animation:rise .8s var(--ease) forwards;animation-delay:calc(var(--i) * 110ms + 150ms)}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .js .stairs .step-block:hover{transform:translateY(-6px)}
+}
+
+/* Mobil */
+@media (max-width:860px){
+  .hero{padding:32px 0 48px}
+  .hero .wrap{grid-template-columns:1fr;gap:36px;min-height:0}
+  .stairs{height:300px}
+  .lesson-row{grid-template-columns:56px 1fr 28px;gap:16px}
+  .lesson-row .meta{grid-column:2/3;grid-row:2}
+  .lesson-row .n{font-size:2.4rem}
+  .two,.aside-grid,.scales,.calc{grid-template-columns:1fr}
+  .calc form{grid-template-columns:1fr}
+  .result{grid-template-columns:repeat(3,1fr);padding:20px}
+  .result .note{font-size:3.2rem}
+  .score-grid{grid-template-columns:1fr}
+  .tile.t1,.tile.t2,.tile.t3,.tile.t4{grid-column:auto}
+  .tl-step{grid-template-columns:1fr;gap:8px}
+  .nav .wrap{gap:12px}
+}
+
+
+/* ===================== Volleyball: Farbwelt ===================== */
+.blau{--c:var(--blue);--cs:var(--blue-soft);--ci:#fff;--ct:#2350d6}
+.gelb{--c:var(--yellow);--cs:var(--yellow-soft);--ci:#3a2a00;--ct:#9a6200}
+.gruen{--c:var(--green);--cs:var(--green-soft);--ci:#fff;--ct:#0b7a54}
+.korall{--c:var(--coral);--cs:var(--coral-soft);--ci:#fff;--ct:#c9343a}
+main.blau,main.gelb,main.gruen,main.korall{--accent:var(--ct);--accent-ink:#fff;--accent-soft:var(--cs)}
+
+body{background:var(--bg) radial-gradient(900px 500px at 92% -8%,#ffe2a3 0,transparent 60%),radial-gradient(700px 420px at -6% 8%,#cfe0ff 0,transparent 60%) no-repeat}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{display:block}
+.brand b{color:var(--blue)}
+.nav a.link[aria-current="page"]{background:var(--ink);color:#fff}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:var(--blue)}
+main.blau .btn-primary,main.gelb .btn-primary,main.gruen .btn-primary,main.korall .btn-primary{background:var(--accent)}
+
+.hero h1 em{background:linear-gradient(100deg,var(--blue),var(--coral) 55%,var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent}
+.teams{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.team-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--surface);border:2px solid var(--c);font-weight:600;font-size:.92rem}
+.team-pill i{width:12px;height:12px;border-radius:50%;background:var(--c)}
+
+.step-block{border:0;background:var(--c);color:var(--ci)}
+.step-block:nth-child(4){background:var(--c);color:var(--ci)}
+.step-block .s{opacity:.85}
+.step-block:nth-child(1){height:46%}.step-block:nth-child(2){height:64%}.step-block:nth-child(3){height:82%}
+
+.lesson-row .n{color:var(--ct)}
+.lesson-row:hover .arr{color:var(--ct)}
+
+.three{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--cs);border-radius:var(--r-card);padding:26px;display:flex;flex-direction:column;gap:8px}
+.step-card .big{font-size:3.4rem;font-weight:800;line-height:1;color:var(--ct);letter-spacing:-.04em}
+.step-card h3{font-size:1.35rem}
+.step-card p{color:var(--ink-soft)}
+
+.tile{border:0}
+.tile.blau,.tile.korall{background:var(--c);color:var(--ci);grid-column:span 3}
+.tile.blau p,.tile.korall p,.tile.blau .big small,.tile.korall .big small{color:inherit;opacity:.9}
+
+.chip.blau[aria-pressed="true"],.chip.gelb[aria-pressed="true"],.chip.gruen[aria-pressed="true"],.chip.korall[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:var(--ci)}
+.chip.blau,.chip.gelb,.chip.gruen,.chip.korall{border-color:var(--c)}
+
+.page-head h1{letter-spacing:-.035em}
+.tl-time{color:var(--ct)}
+.tl-note{background:var(--cs)}
+main.blau .tl-note,main.gelb .tl-note,main.gruen .tl-note,main.korall .tl-note{background:var(--accent-soft)}
+.gamelink{display:inline-block;margin-top:12px;padding:6px 14px;border-radius:999px;background:var(--accent-soft);color:var(--ink);font-weight:600;font-size:.9rem;text-decoration:none}
+.gamelink:hover{background:var(--accent);color:#fff}
+.games-title{margin-top:72px;font-size:clamp(1.7rem,3.2vw,2.4rem)}
+
+/* Spielkarten */
+.games{margin-top:28px;display:grid;gap:22px}
+.game{background:var(--surface);border-radius:var(--r-card);border:2px solid var(--c);overflow:hidden;box-shadow:var(--shadow);break-inside:avoid}
+.game[hidden]{display:none}
+.game-head{background:var(--c);color:var(--ci);padding:16px 22px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.game-head h3{font-size:1.45rem;flex:1 1 220px}
+.game-head .tag{background:rgba(255,255,255,.28);color:inherit}
+.badge{display:inline-block;font-size:.8rem;font-weight:700;padding:3px 12px;border-radius:999px;background:rgba(255,255,255,.3);color:inherit}
+.tech .badge{background:var(--cs);color:var(--ink)}
+.game-body{display:grid;grid-template-columns:1fr 1.15fr;gap:26px;padding:22px}
+.gfx{width:100%;height:auto;display:block;border-radius:14px}
+.game-text{display:grid;gap:10px;align-content:start}
+.game-text .ziel{font-size:1.12rem}
+.game-text p{color:var(--ink-soft)}
+.game-text p b{color:var(--ink)}
+.game-text h4,.tech-text h4{font-size:.9rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ct);margin-top:4px}
+ol.steps{list-style:none;counter-reset:s;display:grid;gap:10px}
+ol.steps li{counter-increment:s;position:relative;padding-left:44px;min-height:32px;color:var(--ink)}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:32px;height:32px;border-radius:50%;background:var(--c);color:var(--ci);display:grid;place-items:center;font-weight:700}
+.pts{background:var(--cs);border-radius:var(--r-ctl);padding:12px 16px;color:var(--ink)}
+.pts b{display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ct);margin-bottom:2px}
+.var{font-size:.95rem}
+.var span{display:inline-block;min-width:68px;font-weight:700;color:var(--ink)}
+.game .tl-note{background:var(--cs)}
+
+/* Spielplan */
+.plan{width:calc(100% - 44px);margin:0 22px 22px;border-collapse:collapse}
+.plan th,.plan td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+.plan th{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft)}
+.dotlbl{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.dotlbl i{width:12px;height:12px;border-radius:50%}
+
+/* Technikseite */
+.tech{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;padding:30px 0;border-top:2px solid var(--line);align-items:start}
+.tech-fig{align-self:start}
+.tech-text{display:grid;gap:14px}
+.tech-text h2{font-size:clamp(2rem,4vw,3rem)}
+.tech-text .panel table td:first-child{width:46%}
+
+/* Ligatabelle */
+.sheet-wrap{margin-top:8px}
+table.liga{border-collapse:separate;border-spacing:0 10px;width:100%;min-width:640px}
+table.liga th{text-align:center;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);padding:4px 6px}
+table.liga th:first-child{text-align:left}
+table.liga td{background:var(--surface);padding:10px 8px;text-align:center}
+table.liga td:first-child{border-radius:var(--r-ctl) 0 0 var(--r-ctl);text-align:left}
+table.liga td:last-child{border-radius:0 var(--r-ctl) var(--r-ctl) 0}
+.tname{display:flex;align-items:center;gap:10px}
+.tname i{width:14px;height:14px;border-radius:50%;flex:none}
+table.liga input{font:inherit;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);padding:9px 10px}
+table.liga input.nm{font-weight:700;width:100%;min-width:130px}
+table.liga input.pt{width:64px;text-align:center;font-size:1.05rem}
+table.liga input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+table.liga .sum{font-weight:800;font-size:1.5rem}
+table.liga .rank{font-weight:800;font-size:1.5rem;color:var(--ink-soft)}
+table.liga tr.first td{background:var(--yellow-soft)}
+table.liga tr.first .rank{color:#9a6200}
+
+.result{background:var(--ink);grid-template-columns:repeat(2,1fr)}
+.calc form{grid-template-columns:1fr 1fr 1fr}
+table.bogen th{background:var(--surface-2)}
+
+@media (max-width:860px){
+  .three{grid-template-columns:1fr}
+  .game-body,.tech{grid-template-columns:1fr}
+  .tech-fig{position:static}
+  .tile.blau,.tile.korall{grid-column:auto}
+  .calc form{grid-template-columns:1fr}
+  .stairs{height:340px}
+  .plan{width:calc(100% - 28px);margin:0 14px 14px;font-size:.9rem}
+  .game-body{padding:16px}
+}
+
+/* Druck: Stundenseiten als sauberes Blatt */
+@media print{
+  @page{size:A4;margin:14mm}
+  :root{--bg:#fff;--ink-soft:#394150}
+  body{background:#fff;font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .nav,.page-actions,.pager,footer.foot,.chips,.btn,.no-print{display:none !important}
+  .reveal,.stairs .step-block{opacity:1 !important;transform:none !important;animation:none !important}
+  .page-head{padding:0 0 10px}
+  .page-head h1{font-size:24pt}
+  .page-head .goal{font-size:12pt}
+  .tl-step{padding:12px 0;grid-template-columns:90px 1fr;gap:16px}
+  .tl-body h3{font-size:13pt}
+  .panel,.tl-step{break-inside:avoid}
+  .aside-grid{margin-top:18px}
+  .wrap{width:100%}
+  .bogen-section{break-before:page;break-inside:avoid}
+  .sheet-wrap{overflow:visible;margin-top:12px}
+  table.bogen{min-width:0;font-size:9pt}
+  table.bogen td{height:11mm}
+  .scales{gap:10px}
+}
+
+@media print{
+  body{background:#fff !important}
+  .game{box-shadow:none;break-inside:avoid;margin-bottom:10px}
+  .game-body{gap:14px;padding:12px}
+  .game-head{padding:8px 14px}
+  .game-head h3{font-size:14pt}
+  .games-title{break-before:page;margin-top:0}
+  .tech{break-inside:avoid;grid-template-columns:.8fr 1.2fr;padding:12px 0}
+  .tech-fig{position:static}
+  table.liga{font-size:11pt}
+  table.liga input{border:0;background:transparent}
+  .gamelink{display:none}
+  .tile.blau,.tile.korall{break-inside:avoid}
+}
+
+/* Navigation darf auf dem Handy nicht die Seite verbreitern */
+.nav .wrap{min-width:0}
+.nav nav{min-width:0;flex:1}
+.nav ul{margin-left:0;justify-content:flex-end}
+@media (max-width:860px){.nav ul{justify-content:flex-start}}
+html,body{overflow-x:clip}
+
+/* ===================== Handy zuerst ===================== */
+summary.game-head{list-style:none;cursor:pointer;position:relative;padding-right:52px}
+summary.game-head::-webkit-details-marker{display:none}
+summary.game-head::after{content:"";position:absolute;right:20px;top:50%;width:11px;height:11px;margin-top:-9px;border-right:3px solid currentColor;border-bottom:3px solid currentColor;transform:rotate(45deg);transition:transform .25s var(--ease)}
+details.game[open] > summary.game-head::after{transform:rotate(-135deg);margin-top:-3px}
+.jump{display:flex;gap:8px;margin:18px 0 6px;flex-wrap:wrap}
+.jump a{padding:10px 18px;border-radius:999px;background:var(--surface);border:1.5px solid var(--line);text-decoration:none;font-weight:600}
+.jump a:hover{border-color:var(--accent)}
+
+.timer{margin-top:12px;display:grid;gap:22px;justify-items:center;text-align:center}
+.timer .chips{justify-content:center;margin-top:0}
+.clock{font-size:clamp(5rem,26vw,11rem);font-weight:800;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.clock.run{color:var(--blue)}
+.clock.done{color:var(--coral);animation:blink .7s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+.timer-btns{display:flex;gap:12px}
+.timer-btns .btn{padding:18px 36px;font-size:1.2rem}
+.chip{padding:11px 18px;min-height:44px}
+
+@media (max-width:860px){
+  .hero .wrap>*{min-width:0}
+  .hero h1{font-size:clamp(2.1rem,10vw,3rem)}
+  .stairs{display:grid;grid-template-columns:1fr;height:auto;gap:10px}
+  .step-block,.step-block:nth-child(n){height:auto;flex-direction:row;align-items:center;justify-content:flex-start;gap:16px;padding:14px 18px}
+  .step-block .num{font-size:2.2rem;min-width:34px}
+  .nav .wrap{height:58px}
+  .nav a.link{padding:11px 14px}
+  .brand{font-size:.95rem}
+  .page-head{padding:28px 0 16px}
+  .page-head h1{font-size:clamp(1.9rem,9vw,2.6rem)}
+  .tl-step{padding:18px 0}
+  .btn{padding:14px 20px}
+  .game-head{padding:14px 52px 14px 16px}
+  .game-head h3{font-size:1.25rem;flex:1 1 100%;order:2}
+  .game-head .badge{order:1}
+  .game-head .tags{order:3}
+  section.block{padding:48px 0}
+  .game-body{gap:16px}
+}
+@media (max-width:640px){
+  table.liga{min-width:0;border-spacing:0}
+  table.liga tbody,table.liga tr{display:block}
+  table.liga tr:first-child{display:none}
+  table.liga tr{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 8px;background:var(--surface);border-radius:var(--r-card);border-left:8px solid var(--tc);padding:14px;margin-bottom:14px;box-shadow:var(--shadow)}
+  table.liga td{display:block;background:none;padding:0;border-radius:0 !important;text-align:center}
+  table.liga td::before{content:attr(data-label);display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:4px}
+  table.liga td.tname{grid-column:1/-1;display:flex}
+  table.liga td.tname::before{display:none}
+  table.liga td.sum{grid-column:1/3}
+  table.liga td.rank{grid-column:3/5}
+  table.liga input.pt{width:100%;padding:12px 4px}
+  table.liga tr.first{background:var(--yellow-soft)}
+  table.liga tr.first td{background:none}
+}
+@media print{
+  details.game > summary.game-head::after{display:none}
+  .jump{display:none}
+}
+
+/* Druck: Spielkarten zweispaltig und kompakt, zwei pro Seite */
+@media print{
+  .game-body{grid-template-columns:.85fr 1.15fr !important;gap:14px;padding:10px 12px}
+  .game{margin-bottom:8px}
+  .game-text{gap:6px;font-size:10pt}
+  .game-text .ziel{font-size:10.5pt}
+  ol.steps{gap:6px}
+  ol.steps li{padding-left:34px;min-height:26px}
+  ol.steps li::before{width:24px;height:24px;font-size:10pt}
+  .pts{padding:8px 12px}
+  .tl-step{padding:8px 0}
+  .games-title{break-before:auto;break-after:avoid;margin-top:18px}
+  .game-head h3{flex:1 1 auto;order:0}
+  .game-head .badge{order:0}
+  .game-head .tags{order:0}
+  .tech{grid-template-columns:.85fr 1.15fr !important}
+  .scales{grid-template-columns:1fr 1fr !important}
+  .aside-grid{grid-template-columns:1fr 1fr !important}
+}

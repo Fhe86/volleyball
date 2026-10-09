@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volleyball Timer</title>
+<meta name="description" content="Stoppuhr für Spielzeiten, mit Signalton und Bildschirm-an.">
+<meta name="theme-color" content="#fff8ee">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30">Volleyball <b>Liga</b></a>
+<nav aria-label="Hauptnavigation"><ul><li><a class="link" href="stunde-1.html">Stunde 1</a></li><li><a class="link" href="stunde-2.html">Stunde 2</a></li><li><a class="link" href="stunde-3.html">Stunde 3</a></li><li><a class="link" href="stunde-4.html">Stunde 4</a></li><li><a class="link" href="spiele.html">Spiele</a></li><li><a class="link" href="technik.html">Technik</a></li><li><a class="link" href="timer.html" aria-current="page">Timer</a></li><li><a class="link" href="liga.html">Liga</a></li><li><a class="link" href="bewertung.html">Bewertung</a></li></ul></nav>
+</div></header>
+<main><div class="wrap">
+<div class="page-head">
+<div class="crumb"><a href="index.html">Volleyball Liga</a> &nbsp;/&nbsp; Timer</div>
+<h1>Timer</h1>
+<p class="goal">Zeit wählen, Start drücken. Am Ende kommt ein Signalton und das Handy vibriert. Der Bildschirm bleibt an.</p>
+</div>
+<div class="timer" id="timer">
+<div class="chips" role="group" aria-label="Zeit wählen"><button class="chip" type="button" data-min="3">3 Min</button><button class="chip" type="button" data-min="5">5 Min</button><button class="chip" type="button" data-min="6">6 Min</button><button class="chip" type="button" data-min="8">8 Min</button><button class="chip" type="button" data-min="10">10 Min</button><button class="chip" type="button" data-min="12">12 Min</button><button class="chip" type="button" data-min="15">15 Min</button></div>
+<div class="clock" id="clock" role="timer" aria-live="off">06:00</div>
+<div class="timer-btns"><button class="btn btn-primary" id="t-start" type="button">Start</button><button class="btn btn-ghost" id="t-reset" type="button">Zurück</button></div>
+<p class="sub" id="t-info">Tipp: Zum Spielen eine Runde 6 bis 10 Minuten, dann Wechsel.</p>
+</div>
+</div></main>
+<footer class="foot"><div class="wrap">
+<span>Sport, Klasse 8, Mittelschule. Material für den Unterricht.</span>
+<span>Lehrplan: LehrplanPLUS Bayern, Sport Jgst. 8</span>
+</div></footer>
+<script src="app.js"></script>
+</body>
+</html>

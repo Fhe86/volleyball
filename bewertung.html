@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volleyball Bewertung</title>
+<meta name="description" content="Notenrechner, Punkte-Richtwerte und Bewertungsbogen für die Volleyball-Liga.">
+<meta name="theme-color" content="#fff8ee">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+<a class="brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30">Volleyball <b>Liga</b></a>
+<nav aria-label="Hauptnavigation"><ul><li><a class="link" href="stunde-1.html">Stunde 1</a></li><li><a class="link" href="stunde-2.html">Stunde 2</a></li><li><a class="link" href="stunde-3.html">Stunde 3</a></li><li><a class="link" href="stunde-4.html">Stunde 4</a></li><li><a class="link" href="spiele.html">Spiele</a></li><li><a class="link" href="technik.html">Technik</a></li><li><a class="link" href="timer.html">Timer</a></li><li><a class="link" href="liga.html">Liga</a></li><li><a class="link" href="bewertung.html" aria-current="page">Bewertung</a></li></ul></nav>
+</div></header>
+<main><div class="wrap">
+<div class="page-head">
+<div class="crumb"><a href="index.html">Volleyball Liga</a> &nbsp;/&nbsp; Bewertung</div>
+<h1>Zwei Noten für Volleyball</h1>
+<p class="goal">Technik (Pritschen und Baggern, zusammen 20 Punkte) und Spiel (12 Punkte). Jede Note wird einzeln berechnet.</p>
+</div>
+
+<div class="calc no-print">
+<form id="rechner" novalidate aria-label="Notenrechner"><div class="field"><label for="f-pritschen">Punkte Pritschen</label><input id="f-pritschen" name="pritschen" type="text" inputmode="decimal" autocomplete="off"><span class="hint">0 bis 10 Punkte</span><span class="err" id="e-pritschen" role="alert"></span></div><div class="field"><label for="f-baggern">Punkte Baggern</label><input id="f-baggern" name="baggern" type="text" inputmode="decimal" autocomplete="off"><span class="hint">0 bis 10 Punkte</span><span class="err" id="e-baggern" role="alert"></span></div><div class="field"><label for="f-spiel">Punkte Spiel</label><input id="f-spiel" name="spiel" type="text" inputmode="decimal" autocomplete="off"><span class="hint">0 bis 12 Punkte</span><span class="err" id="e-spiel" role="alert"></span></div></form>
+<div class="result"><div class="res-col"><div class="lbl">Note Technik</div><div class="note" id="r-technik" aria-live="polite">-</div><div class="lbl" id="p-technik"></div></div><div class="res-col"><div class="lbl">Note Spiel</div><div class="note" id="r-spiel" aria-live="polite">-</div><div class="lbl" id="p-spiel"></div></div></div>
+</div>
+
+<div class="scales">
+<div class="panel"><h3>Technik Pritschen, 10 Punkte</h3><p>5 Zuwürfe aus 4 Metern, jeder Treffer in der Zone gibt 1 Punkt. Dazu 5 Technikpunkte:</p><table><tr><th>Merkmal</th><th>Maßstab</th></tr><tr><td>Dreieck</td><td>Hände bilden ein Dreieck über der Stirn</td></tr><tr><td>Beine</td><td>Knie beugen, dann strecken</td></tr><tr><td>Treffpunkt</td><td>Ball wird über der Stirn getroffen</td></tr><tr><td>Flug</td><td>Ball steigt hoch und gerade</td></tr><tr><td>Blick</td><td>Blick zum Ball und zum Ziel</td></tr></table></div>
+<div class="panel"><h3>Technik Baggern, 10 Punkte</h3><p>5 Zuwürfe aus 4 Metern, jeder Treffer in der Zone gibt 1 Punkt. Dazu 5 Technikpunkte:</p><table><tr><th>Merkmal</th><th>Maßstab</th></tr><tr><td>Arme</td><td>Hände zusammen, Arme gestreckt</td></tr><tr><td>Beine</td><td>Knie gebeugt, Schwung aus den Beinen</td></tr><tr><td>Treffpunkt</td><td>Ball trifft die Unterarme vor dem Körper</td></tr><tr><td>Flug</td><td>Ball steigt kontrolliert hoch</td></tr><tr><td>Blick</td><td>Blick zum Ball und zum Ziel</td></tr></table></div>
+<div class="panel"><h3>Spiel, 12 Punkte</h3><p>Vier Kriterien, je 0 bis 3 Punkte, beobachtet im 3-gegen-3.</p><table><tr><th>Kriterium</th><th>Maßstab</th></tr><tr><td>Annahme und Zuspiel</td><td>3 = fast immer sauber, 0 = der Ball geht oft verloren</td></tr><tr><td>Absprache und Stellung</td><td>3 = ruft Meiner und steht richtig, 0 = bleibt stehen</td></tr><tr><td>Fairness und Regeln</td><td>3 = fair und akzeptiert Entscheidungen, 0 = stört</td></tr><tr><td>Einsatz und Teamgeist</td><td>3 = immer dabei und motiviert andere, 0 = wenig Einsatz</td></tr></table></div>
+<div class="panel"><h3>Notenschlüssel (90, 80, 60, 40, 20 Prozent)</h3>
+<table><tr><th>Note</th><th>Technik /20</th><th>Spiel /12</th></tr><tr><td>Note 1</td><td>ab 18</td><td>ab 11</td></tr><tr><td>Note 2</td><td>ab 16</td><td>ab 10</td></tr><tr><td>Note 3</td><td>ab 12</td><td>ab 8</td></tr><tr><td>Note 4</td><td>ab 8</td><td>ab 5</td></tr><tr><td>Note 5</td><td>ab 4</td><td>ab 3</td></tr><tr><td>Note 6</td><td>darunter</td><td>darunter</td></tr></table></div>
+</div>
+<p class="sub">Die Richtwerte sind ein Vorschlag, keine amtliche Tabelle. Nach dem ersten Durchlauf mit der Klasse justieren, falls fast alle am selben Ende landen.</p>
+
+<div class="bogen-section">
+<h2 class="title" style="margin-top:56px">Bewertungsbogen zum Ausdrucken</h2>
+<div class="page-actions no-print"><button class="btn btn-primary" onclick="window.print()">Als PDF herunterladen</button></div>
+<div class="sheet-wrap"><table class="bogen" aria-label="Bewertungsbogen">
+<tr><th>#</th><th>Name</th><th>Team</th><th>Pritschen /10</th><th>Baggern /10</th><th>Note Technik</th><th>Spiel /12</th><th>Note Spiel</th></tr><tr><td class="n">1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">6</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">7</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">9</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">10</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">11</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">12</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">13</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">14</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">15</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td class="n">16</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></div>
+</div>
+</div></main>
+<footer class="foot"><div class="wrap">
+<span>Sport, Klasse 8, Mittelschule. Material für den Unterricht.</span>
+<span>Lehrplan: LehrplanPLUS Bayern, Sport Jgst. 8</span>
+</div></footer>
+<script src="app.js"></script>
+</body>
+</html>
